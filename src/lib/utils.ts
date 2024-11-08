@@ -5,10 +5,25 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+const LSWD_KEY = "working-directory";
+
 const getWD = () => {
-  const key = localStorage.getItem("working-directory");
-  if (!key) return false;
-  return key;
+  return localStorage.getItem(LSWD_KEY);
+}
+
+/**
+ * Sets the working directory in the local storage
+ * @param wd string of the working directory
+ * @returns if everything went right: null else an error message
+ */
+const setWD = (wd: string) => {
+  try {
+    localStorage.setItem(LSWD_KEY, wd);
+    return null;
+  } catch (_e) {
+    const e: DOMException = _e as any;
+    return e.message;
+  }
 }
 
 /**
@@ -30,4 +45,9 @@ const numberBetween = (value: number, min: number, max: number) => {
   return Math.min(Math.max(value, min), max);
 }
 
-export { getWD, randomNumberBetween, numberBetween }
+export { 
+  getWD,
+  setWD,
+  numberBetween,
+  randomNumberBetween,
+}

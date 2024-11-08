@@ -1,11 +1,9 @@
-import { ModeToggle } from './ModeToggle'
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from './ui/sidebar'
 
-const FunctionSidebar = () => {
+const NavSidebar = () => {
     return (
-        <Sidebar side="right" collapsible="none" variant="sidebar" data-variant="sidebar" data-side="right" className='h-svh hidden sm:block'>
+        <Sidebar side="left" collapsible="icon" variant="sidebar">
             <SidebarHeader className='flex-row'>
-                <ModeToggle className='ml-auto' variant="ghost" />
             </SidebarHeader>
             <SidebarContent>
 
@@ -17,4 +15,4 @@ const FunctionSidebar = () => {
     )
 }
 
-export default FunctionSidebar
+export default NavSidebar
