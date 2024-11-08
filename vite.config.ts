@@ -20,14 +20,14 @@ export default defineConfig(async () => ({
   // 2. tauri expects a fixed port, fail if that port is not available
   envPrefix: ['VITE_', 'TAURI_ENV_*'],
   server: {
-    port: 1420,
+    port: 1520,
     strictPort: true,
     host: host || false,
     hmr: host
       ? {
           protocol: "ws",
           host,
-          port: 1421,
+          port: 1521,
         }
       : undefined,
     watch: {
