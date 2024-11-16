@@ -5,6 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+/** Local Storage working directory key */
 const LSWD_KEY = "working-directory";
 
 const getWD = () => {

@@ -29,7 +29,7 @@ const StartDialog = (props: HTMLAttributes<HTMLDivElement>) => {
                     Icon={FilePlus}
                     buttonText="Create File"
                     title="Create tauri.conf.json"
-                    description="Opens the selected folder and checks if all necessary files exists."
+                    description="Create and edit tauri.conf.json"
                />
             </div>
         </div>
