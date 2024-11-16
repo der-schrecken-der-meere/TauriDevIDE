@@ -23,7 +23,7 @@ const MainLayout = () => {
             <main className="flex-1 relative p-7">
                 <SidebarTrigger className="absolute left-2 top-2" />
                 <Card className="h-full overflow-hidden">
-                    <CardContent className="h-full">
+                    <CardContent className="h-full pt-6">
                         <Outlet />
                     </CardContent>
                 </Card>

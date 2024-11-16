@@ -1,11 +1,14 @@
 import MainLayout from "./components/layout/MainLayout";
 import { ThemeProvider } from "./components/provider/themeProvider";
-import StartDialog from "./components/StartDialog";
 import { SidebarProvider } from "./components/ui/sidebar";
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
+const Start = lazy(() => import("./pages/Start"));
+const TauriConfJson = lazy(() => import("./pages/TauriConfJson"));
 
 const router = createBrowserRouter([
     {
@@ -14,7 +17,19 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "start",
-                element: <StartDialog className="w-full h-full flex flex-col items-center justify-center" />
+                element: (
+                    <Suspense fallback={<div>Loading</div>}>
+                        <Start className="w-full h-full flex flex-col items-center justify-center" />
+                    </Suspense>
+                ),
+            },
+            {
+                path: "tauri_conf_json",
+                element: (
+                    <Suspense fallback={<div>Loading</div>}>
+                        <TauriConfJson />
+                    </Suspense>
+                ),
             }
         ]
     }
