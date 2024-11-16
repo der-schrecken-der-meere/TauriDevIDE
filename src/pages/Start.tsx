@@ -1,8 +1,8 @@
-import { FunctionComponent, HTMLAttributes, ReactElement, ReactNode, useCallback } from "react"
-import { Button } from "./ui/button"
+import { FunctionComponent, HTMLAttributes, ReactNode, useCallback } from "react"
+import { Button } from "@/components/ui/button";
 import { FilePlus, Folder } from "lucide-react"
 
-const StartDialog = (props: HTMLAttributes<HTMLDivElement>) => {
+const Start = (props: HTMLAttributes<HTMLDivElement>) => {
 
     const onCreateClick = useCallback(() => {
 
@@ -61,4 +61,4 @@ const StartDialogOption = ({
     );
 }
 
-export default StartDialog
+export default Start;
