@@ -11,9 +11,9 @@ const HorizontalNavigation = ({
     const { currentFile } = useNavigation({});
 
     return (
-        <div className={cn("flex items-center border-b py-1 px-2", className)} {...props}>
+        <div className={cn("flex items-center border-b py-1 px-2 gap-2", className)} {...props}>
+            <SidebarTrigger />
             <span className="text-muted-foreground">{currentFile}</span>
-            <SidebarTrigger className="ml-auto" />
         </div>
     )
 }
