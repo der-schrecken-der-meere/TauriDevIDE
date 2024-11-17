@@ -1,11 +1,9 @@
 import Preloader from '@/Preloader'
 import NavSidebar from '../NavSection'
-import { SidebarTrigger } from '../ui/sidebar'
-import { Card, CardContent } from '../ui/card'
-import FunctionSidebar from '../FunctionSidebar'
 import { getWD } from '@/lib/utils'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { HorizontalNavigation } from '../Navigation'
 
 const MainLayout = () => {
 
@@ -20,15 +18,10 @@ const MainLayout = () => {
         <>
             <Preloader />
             <NavSidebar />
-            <main className="flex-1 relative p-7">
-                <SidebarTrigger className="absolute left-2 top-2" />
-                <Card className="h-full overflow-hidden">
-                    <CardContent className="h-full pt-6">
-                        <Outlet />
-                    </CardContent>
-                </Card>
+            <main className="w-full flex flex-col">
+                <HorizontalNavigation />
+                <Outlet />
             </main>
-            <FunctionSidebar />
         </>
     )
 }

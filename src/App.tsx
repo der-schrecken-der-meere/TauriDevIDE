@@ -6,6 +6,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { NavigationProvider } from "./components/provider/navigationProvider";
 
 const Start = lazy(() => import("./pages/Start"));
 const TauriConfJson = lazy(() => import("./pages/TauriConfJson"));
@@ -33,13 +34,23 @@ const router = createBrowserRouter([
             }
         ]
     }
-])
+], {
+    future: {
+        v7_partialHydration: true,
+        v7_normalizeFormMethod: true,
+        v7_relativeSplatPath: true,
+        v7_fetcherPersist: true,
+        v7_skipActionErrorRevalidation: true,
+    }
+})
 
 function App() {
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <SidebarProvider>
-                <RouterProvider router={router} />
+                <NavigationProvider>
+                    <RouterProvider router={router} future={{ v7_startTransition: true }} />
+                </NavigationProvider>
             </SidebarProvider>
         </ThemeProvider>
     );
